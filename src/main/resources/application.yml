@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: UrecaGroup8
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ureca_db?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: root0622
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update # 스키마 변경 시 자동으로 업데이트합니다.
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false # 개발 중에는 캐시를 비활성화하여 변경 사항이 즉시 반영됩니다.
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.springframework.web: debug
+    org.springframework: info
